@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import Tabs from './Tabs';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "../src/styles/index.scss"
+import "../node_modules/bootstrap/scss/bootstrap.scss";
+import * as serviceWorker from "./serviceWorker";
+import App from "./components/App";
 
-ReactDOM.render(<Tabs />, document.getElementById('root'));
-
-// If you want your Tabs to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+ReactDOM.render(
+  <App />,
+  document.getElementById("root")
+);
 serviceWorker.unregister();
