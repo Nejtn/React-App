@@ -26,7 +26,11 @@ class Filters extends Component {
                     type="text" 
                     placeholder="Search"
                 />
-                <button className="btn-light border border-success px-4 py-2 blockTransform" type="submit">
+                <button 
+                    className="btn-light border border-success px-4 py-2 blockTransform" 
+                    type="submit"
+                    onClick={this.props.getRandomBeers}
+                >
                     <div className="textTransform">Random</div>
                 </button>
             </div>

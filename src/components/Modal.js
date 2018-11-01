@@ -3,7 +3,6 @@ import "../styles/Modal.scss";
 
 class ModalInfo extends Component {
   render() {
-    console.log(this.closeModal);
     const showModal = `${this.props.show ? "showModal--active" : ""}`;
     return (
       <div className={`showModal ${showModal}`}>

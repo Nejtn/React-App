@@ -56,6 +56,22 @@ class App extends Component {
       });
   };
 
+  getRandomBeers = () => {
+      const fetchUrl = `https://api.punkapi.com/v2/beers/random`;
+      axios
+        .get(fetchUrl)
+        .then(response => {
+           this.setState({
+            results: response.data,
+            filteredResults: response.data,
+            currentPageNumber: 0
+          });
+        })
+        .catch(error => {
+          console.log(error.response.data.message);
+        });
+  }
+
   render() {
     return (
       <div className="container">
@@ -63,7 +79,10 @@ class App extends Component {
           getBeers={this.getBeers}
           handleTabClick={this.handleTabClick}
         />
-        <Filters getFilterBeerName={this.getFilterBeerName} />
+        <Filters
+          getFilterBeerName={this.getFilterBeerName}
+          getRandomBeers={this.getRandomBeers}
+        />
         <BeerList
           results={this.state.filteredResults}
         />
