@@ -1,19 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 import "../styles/Modal.scss";
 
-class ModalInfo extends Component {
-  
-  render() {
+const ModalInfo = ({ data: { name, food_pairing } }) => {
     return (
-      <div className={`showModal showModal--active`}>
+      <div className="showModal">
         <div className="modalContent pt-3 border-top border-bottom border-light">
           <h3 className="pb-4 mx-2 border-bottom border-light">
-            {this.props.data.name}
+            {name}
           </h3>
           <ul className="list-unstyled position-relative py-2">
             <li className="rotatedText">Pairing food</li>
-            {this.props.data.food_pairing.map(item => {
+            {food_pairing.map(item => {
               return (
                 <li className="pl-5 py-1" key={item}>
                   - {item}
@@ -31,7 +29,6 @@ class ModalInfo extends Component {
       </div>
     );
   }
-}
 
 ModalInfo.propTypes = {
   closeModal: PropTypes.func.isRequired,

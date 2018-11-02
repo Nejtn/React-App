@@ -12,10 +12,13 @@
     display: flex;
 }
 
+.beerPhoto {
+    width: 80px;
+}
+
 .loadMore {
     padding: 1rem 4rem;
     transform: skew(-15deg, 0);
     background-color: #dee2e6;
     border: 1px solid #28a745;
-
 }

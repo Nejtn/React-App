@@ -26,10 +26,9 @@ class BeerItem extends Component {
         <div className="row">
           <div className="beerPhoto col-4">
             <img
-              className="px-2"
+              className="px-2 beerPhoto"
               src={image_url}
               alt="beer"
-              width="80px"
             />
           </div>
           <div className="col-8">

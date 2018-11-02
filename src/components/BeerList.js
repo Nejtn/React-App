@@ -7,7 +7,7 @@ class BeerList extends Component {
   render() {
     return (
       <div className="beerContainer">
-        <ul className="beerList row mt-2">
+        <ul className="d-flex jusctify-content-between list-unstyled row mt-2">
         {this.props.results.map(item => (
           <BeerItem
             key={item.name} 
