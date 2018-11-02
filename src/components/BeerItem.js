@@ -25,7 +25,12 @@ class BeerItem extends Component {
       <li className="beerItem mb-4 col-12 col-md-6 col-lg-4">
         <div className="row">
           <div className="beerPhoto col-4">
-            <img className="px-2" src={image_url} alt="beer" width="80px" />
+            <img
+              className="px-2"
+              src={image_url}
+              alt="beer"
+              width="80px"
+            />
           </div>
           <div className="col-8">
             <h4 className="text-success">{name}</h4>
@@ -37,9 +42,14 @@ class BeerItem extends Component {
               >
                 <small className="textTransform">More</small>
               </button>
-              <div className="d-flex justify-content-center">
-                <ModalInfo show={this.state.show} data={this.props} closeModal={this.closeModal} />
-              </div>
+              {this.state.show &&
+                <div className="d-flex justify-content-center">
+                  <ModalInfo
+                    data={this.props}
+                    closeModal={this.closeModal}
+                  />
+                </div>
+              }
             </div>
             <p>
               <small>{brewers_tips}</small>

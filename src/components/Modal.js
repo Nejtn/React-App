@@ -1,13 +1,16 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import "../styles/Modal.scss";
 
 class ModalInfo extends Component {
+  
   render() {
-    const showModal = `${this.props.show ? "showModal--active" : ""}`;
     return (
-      <div className={`showModal ${showModal}`}>
+      <div className={`showModal showModal--active`}>
         <div className="modalContent pt-3 border-top border-bottom border-light">
-          <h3 className="pb-4 mx-2 border-bottom border-light">{this.props.data.name}</h3>
+          <h3 className="pb-4 mx-2 border-bottom border-light">
+            {this.props.data.name}
+          </h3>
           <ul className="list-unstyled position-relative py-2">
             <li className="rotatedText">Pairing food</li>
             {this.props.data.food_pairing.map(item => {
@@ -28,6 +31,14 @@ class ModalInfo extends Component {
       </div>
     );
   }
+}
+
+ModalInfo.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    food_pairing: PropTypes.array.isRequired
+  }),
 }
 
 export default ModalInfo;

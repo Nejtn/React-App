@@ -34,7 +34,10 @@ class Tabs extends Component {
       <div>
         <header className="tabsHeader">
           {tabs.map(item => (
-            <div className="w-100 blockTransform" key={item.id}>
+            <div
+              className="w-100 blockTransform"
+              key={item.id}
+            >
               <button
                 className={`tabs ${(item.id === this.state.active) && 'active'}`}
                 onClick={() => this.handleClick(item.id, item.pageNumber)}

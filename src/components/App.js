@@ -90,7 +90,7 @@ class App extends Component {
           <button
             className="border border-success loadMore"
             onClick={this.handleClick}
-            >
+          >
             <span className="textTransform">Load more</span>
           </button>
         </div>
