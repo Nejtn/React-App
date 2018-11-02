@@ -20,7 +20,7 @@ class BeerItem extends Component {
   };
 
   render() {
-    const { image_url, name, ibu, brewers_tips, tagline } = this.props;
+    const { brewers_tips, ibu, image_url, name, tagline } = this.props;
     return (
       <li className="beerItem mb-4 col-12 col-md-6 col-lg-4">
         <div className="row">
@@ -35,6 +35,7 @@ class BeerItem extends Component {
             <h4 className="text-success">{name}</h4>
             <div className="d-flex align-items-center">
               <p className="font-weight-bold mb-2">IBU: {ibu}</p>
+              {/* {console.log(this.props.ibu)} */}
               <button
                 onClick={this.openModal}
                 className="btn-light border border-success ml-3 mb-2 px-2 py-0 blockTransform"
@@ -62,9 +63,13 @@ class BeerItem extends Component {
   }
 }
 
+BeerItem.defaultProps = {
+  ibu: ''
+}
+
 BeerItem.propTypes = {
   brewers_tips: PropTypes.string.isRequired,
-  ibu: PropTypes.number.isRequired,
+  ibu: PropTypes.number,
   image_url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   tagline: PropTypes.string.isRequired,

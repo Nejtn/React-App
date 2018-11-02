@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import "../styles/Modal.scss";
 
-const ModalInfo = ({ data: { name, food_pairing } }) => {
+const ModalInfo = ({ data: { name, food_pairing }, closeModal }) => {
     return (
       <div className="showModal">
         <div className="modalContent pt-3 border-top border-bottom border-light">
@@ -21,7 +21,7 @@ const ModalInfo = ({ data: { name, food_pairing } }) => {
           </ul>
           <button
             className="btn-light px-2 py-0 blockTransform closeBtn btn-outline-light"
-            onClick={this.props.closeModal}
+            onClick={closeModal}
           >
             <small className="textTransform">Close</small>
           </button>
