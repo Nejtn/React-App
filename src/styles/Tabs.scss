@@ -1,0 +1,26 @@
+.tabsHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.blockTransform {
+  transform: skew(-15deg, 0);
+}
+
+.textTransform {
+  display: block;
+  transform: skew(15deg, 0)
+}
+
+.tabs {
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid gray;
+  outline: none;
+}
+
+.active {
+  border-bottom: 4px solid #28a745;
+}

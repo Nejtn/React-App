@@ -1,0 +1,41 @@
+.showModal {
+  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  height: 100%;
+  background-color: #103123;
+  opacity: 0.95;
+  color: white;
+  font-size: 12px;
+  padding: 2rem 1rem;
+}
+
+.modalContent {
+  position: relative;
+  width: 350px;
+  height: 450px;
+  // box-shadow: 7px 10px 33px 0px rgba(27,29,23,1);
+}
+
+.rotatedText {
+  transform: rotate(90deg);
+  position: absolute;
+  top: 3.9rem;
+  left: -2.4rem;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: rgb(235, 77, 77);
+}
+
+.closeBtn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
