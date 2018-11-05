@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import "../styles/Filters.scss";
 
-class Filters extends Component {
+import "../styles/Filter.scss";
+
+class Filter extends Component {
     state = {
-        beerName: "",
-        random: []
+        filterValue: "",
+        randomFilterButton: []
     }
 
     handleChange = (e) => {
         this.setState({
-            beerName: e.target.value
+            filterValue: e.target.value
         }, () => {
-            this.props.getFilterBeerName(this.state.beerName)
+            this.props.filteredByName(this.state.filterValue)
         })
     }
 
@@ -21,7 +22,7 @@ class Filters extends Component {
             <div className="d-flex justify-content-center py-4">
                 <input
                     className="blockTransform mr-3"
-                    value={this.state.beerName}
+                    value={this.state.filterValue}
                     onChange={this.handleChange}
                     type="text" 
                     placeholder="Search"
@@ -38,13 +39,13 @@ class Filters extends Component {
     }
 }
 
-Filters.defaultProps = {
+Filter.defaultProps = {
     name: ''
 };
   
-Filters.propTypes = {
-    getFilterBeerName: PropTypes.func.isRequired,
+Filter.propTypes = {
+    filteredByName: PropTypes.func.isRequired,
     name: PropTypes.string
-}
+};
  
-export default Filters;
+export default Filter;

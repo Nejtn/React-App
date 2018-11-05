@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+
 import "../styles/Tabs.scss";
 
 const tabs = [
@@ -31,23 +32,18 @@ class Tabs extends Component {
 
   render() {
     return (
-      <div>
-        <header className="tabsHeader">
-          {tabs.map(item => (
-            <div
-              className="w-100 blockTransform"
-              key={item.id}
+      <header className="tabsHeader">
+        {tabs.map(item => (
+          <div className="w-100 blockTransform" key={item.id}>
+            <button
+              className={`tabs ${item.id === this.state.active && "active"}`}
+              onClick={() => this.handleClick(item.id, item.pageNumber)}
             >
-              <button
-                className={`tabs ${(item.id === this.state.active) && 'active'}`}
-                onClick={() => this.handleClick(item.id, item.pageNumber)}
-              >
-                <span className="textTransform">{item.name}</span>
-              </button>
-            </div>
-          ))}
-        </header>
-      </div>
+              <span className="textTransform">{item.name}</span>
+            </button>
+          </div>
+        ))}
+      </header>
     );
   }
 }
@@ -55,6 +51,6 @@ class Tabs extends Component {
 Tabs.propTypes = {
   getBeers: PropTypes.func.isRequired,
   handleTabClick: PropTypes.func.isRequired
-}
+};
 
 export default Tabs;
