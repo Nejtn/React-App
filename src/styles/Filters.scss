@@ -1,9 +1,0 @@
-input {
-  &::placeholder {
-    transform: skew(15deg, 0);
-  }
-
-  &[type="text"] {
-    padding-left: 0.8rem;
-  }
-}
