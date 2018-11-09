@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import ModalInfo from "./Modal";
+import ModalInfo from './Modal';
 
 class BeerItem extends Component {
   state = {
@@ -61,7 +61,7 @@ class BeerItem extends Component {
 }
 
 BeerItem.defaultProps = {
-  ibu: "" //index of bitternes
+  ibu: '' //index of bitternes
 };
 
 BeerItem.propTypes = {

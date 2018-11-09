@@ -1,33 +1,26 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
 
-import Tabs from "./Tabs";
-import BeerList from "./BeerList";
-import Filter from "./Filter";
+import Tabs from './Tabs';
+import BeerList from './BeerList';
+import Filter from './Filter';
 
-import { URL } from "../constants/index";
+import { BEER_DATA_URL } from '../constants/index';
 
 class App extends Component {
   state = {
     results: [],
     filteredResults: [],
-    currentPageNumber: 0,
-    activeTab: false
+    currentPageNumber: 0
   };
 
   componentDidMount() {
-    this.getBeers(1);
+    this.getBeers(1, true);
   }
-
-  handleTabClick = () => {
-    this.setState({
-      activeTab: true
-    });
-  };
 
   filteredByName = filterValue => {
     const filtered = this.state.results.filter(result => {
-      return result.name.includes(filterValue);
+      return result.name.toLowerCase().includes(filterValue.toLowerCase());
     });
 
     this.setState({
@@ -35,25 +28,25 @@ class App extends Component {
     });
   };
 
-  handleLoadMoreButton = () => {
+  loadMoreButton = () => {
     this.setState(
       prevState => ({
         currentPageNumber: +prevState.currentPageNumber + 1,
-        activeTab: false
       }),
       () => {
-        this.getBeers(this.state.currentPageNumber);
+        this.getBeers(this.state.currentPageNumber, true);
       }
     );
   };
 
-  getBeers = pageNumber => {
-    const { activeTab, results } = this.state;
+  getBeers = (pageNumber, loadMoreItems) => {
+    const { results } = this.state;
+
     axios
-      .get(`${URL}?page=${pageNumber}&per_page=21`)
+      .get(`${BEER_DATA_URL}?page=${pageNumber}&per_page=21`)
       .then(response => {
         const { data } = response;
-        const responseData = activeTab === true ? data : [...results, ...data];
+        const responseData = loadMoreItems ? [...results, ...data] : data;
 
         this.setState({
           results: responseData,
@@ -67,7 +60,7 @@ class App extends Component {
   };
 
   getRandomBeers = () => {
-    const fetchUrl = `${URL}/random`;
+    const fetchUrl = `${BEER_DATA_URL}/random`;
     axios
       .get(fetchUrl)
       .then(response => {
@@ -87,7 +80,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Tabs getBeers={this.getBeers} handleTabClick={this.handleTabClick} />
+        <Tabs getBeers={this.getBeers} />
         <Filter
           filteredByName={this.filteredByName}
           getRandomBeers={this.getRandomBeers}
@@ -96,7 +89,7 @@ class App extends Component {
         <div className="d-flex justify-content-center mb-5">
           <button
             className="border border-success loadMore"
-            onClick={this.handleLoadMoreButton}
+            onClick={this.loadMoreButton}
           >
             <span className="textTransform">Load more</span>
           </button>

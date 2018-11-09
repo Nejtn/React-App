@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import "../styles/Modal.scss";
+import '../styles/Modal.scss';
 
 const ModalInfo = ({ data: { name, food_pairing }, closeModal }) => {
   return (
@@ -10,6 +10,7 @@ const ModalInfo = ({ data: { name, food_pairing }, closeModal }) => {
         <h3 className="pb-4 mx-2 border-bottom border-light">{name}</h3>
         <ul className="list-unstyled position-relative py-2">
           <li className="rotatedText">Pairing food</li>
+
           {food_pairing.map(item => {
             return (
               <li className="pl-5 py-1" key={item}>
@@ -17,6 +18,7 @@ const ModalInfo = ({ data: { name, food_pairing }, closeModal }) => {
               </li>
             );
           })}
+          
         </ul>
         <button
           className="btn-light px-2 py-0 blockTransform closeBtn btn-outline-light"

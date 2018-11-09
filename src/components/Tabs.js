@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import "../styles/Tabs.scss";
+import '../styles/Tabs.scss';
 
 const tabs = [
   {
-    id: "id1",
-    name: "Tab 1",
-    pageNumber: "1"
+    id: 'id1',
+    name: 'Tab 1',
+    pageNumber: 1
   },
   {
-    id: "id2",
-    name: "Tab 2",
-    pageNumber: "2"
+    id: 'id2',
+    name: 'Tab 2',
+    pageNumber: 2
   },
   {
-    id: "id3",
-    name: "Tab 3",
-    pageNumber: "3"
+    id: 'id3',
+    name: 'Tab 3',
+    pageNumber: 3
   }
 ];
 
@@ -26,13 +26,13 @@ class Tabs extends Component {
 
   handleClick = (id, pageNumber) => {
     this.setState({ active: id });
-    this.props.getBeers(pageNumber);
-    this.props.handleTabClick();
+    this.props.getBeers(pageNumber, false);
   };
 
   render() {
     return (
       <header className="tabsHeader">
+
         {tabs.map(item => (
           <div className="w-100 blockTransform" key={item.id}>
             <button
@@ -43,14 +43,14 @@ class Tabs extends Component {
             </button>
           </div>
         ))}
+        
       </header>
     );
   }
 }
 
 Tabs.propTypes = {
-  getBeers: PropTypes.func.isRequired,
-  handleTabClick: PropTypes.func.isRequired
+  getBeers: PropTypes.func.isRequired
 };
 
 export default Tabs;
