@@ -18,6 +18,7 @@ class App extends Component {
     this.getBeers(1, true);
   }
 
+  //Case insensitive search
   filteredByName = filterValue => {
     const filtered = this.state.results.filter(result => {
       return result.name.toLowerCase().includes(filterValue.toLowerCase());
@@ -28,6 +29,7 @@ class App extends Component {
     });
   };
 
+  //Load more button
   loadMoreButton = () => {
     this.setState(
       prevState => ({
@@ -39,6 +41,7 @@ class App extends Component {
     );
   };
 
+  //Main API request
   getBeers = (pageNumber, loadMoreItems) => {
     const { results } = this.state;
 
@@ -59,6 +62,7 @@ class App extends Component {
       });
   };
 
+  //API request for random result
   getRandomBeers = () => {
     const fetchUrl = `${BEER_DATA_URL}/random`;
     axios

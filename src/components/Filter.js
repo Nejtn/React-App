@@ -8,6 +8,7 @@ class Filter extends Component {
         filterValue: ''
     }
 
+    //Filter func
     handleChange = (e) => {
         this.setState({
             filterValue: e.target.value

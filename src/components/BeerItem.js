@@ -8,6 +8,7 @@ class BeerItem extends Component {
     show: false
   };
 
+  //Open and close Modal
   openModal = () => {
     this.setState({
       show: true
